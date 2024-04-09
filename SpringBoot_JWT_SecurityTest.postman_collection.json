@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "4cd4cf6e-b536-4376-a62e-a08919336fa7",
+		"name": "SpringBoot_JWT_SecurityTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "468713"
+	},
+	"item": [
+		{
+			"name": "getAllProducts_for_ROLE_ADMIN",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJQYWJpdHJhIiwiaWF0IjoxNzEyNjc1NTY4LCJleHAiOjE3MTI2NzczNjh9.hEXqQgnZFlf2o4o1-1LWP9nViIzmXoPRiq3ju2eS7gc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProductById_for_ROLE_USER",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBamF5IiwiaWF0IjoxNzEyNjc2Mjg2LCJleHAiOjE3MTI2NzgwODZ9.matHqid2jWmfgKTJ4teB9pnW-BVO9T1OOslixJglqXM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generateBearerToken_for_ROLE_ADMIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Pabitra\",\r\n    \"password\":\"Pwd3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generateBearerToken_for_ROLE_USER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Ajay\",\r\n    \"password\":\"Pwd1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createuser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Nandini\",\r\n    \"password\":\"Pwd4\",\r\n    \"email\":\"nandini@gmail.com\",\r\n    \"roles\":\"ROLE_HR\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/createuser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"createuser"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
